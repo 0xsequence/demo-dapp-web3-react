@@ -1,5 +1,5 @@
 import { initializeConnector } from '@web3-react/core'
-import { Sequence } from '@web3-react/sequence'
+import { Sequence } from '@0xsequence/web3-react'
 
 const options = {
   appName: 'Web3 React Demo app'

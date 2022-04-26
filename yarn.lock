@@ -358,6 +358,12 @@
     ethers "^5.5.2"
     fetch-ponyfill "^7.1.0"
 
+"@0xsequence/web3-react@file:../web3-react/packages/sequence":
+  version "1.0.0"
+  dependencies:
+    "0xsequence" "^0.36.0"
+    "@web3-react/types" "^8.0.13-beta.0"
+
 "@ampproject/remapping@^2.0.0":
   version "2.0.2"
   resolved "https://registry.npmjs.org/@ampproject/remapping/-/remapping-2.0.2.tgz"
@@ -3112,12 +3118,6 @@
     zustand "^4.0.0-rc.0"
   optionalDependencies:
     "@ethersproject/providers" "^5"
-
-"@web3-react/sequence@file:../web3-react/packages/sequence":
-  version "8.0.6-beta.0"
-  dependencies:
-    "0xsequence" "^0.36.0"
-    "@web3-react/types" "^8.0.13-beta.0"
 
 "@web3-react/store@^8.0.18-beta.0":
   version "8.0.18-beta.0"
