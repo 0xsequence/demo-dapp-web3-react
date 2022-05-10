@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-
+import React from 'react'
+import { useWeb3React } from '@web3-react/core'
 import logoUrl from './images/logo.svg'
 
 import { ethers } from 'ethers'
@@ -11,31 +11,25 @@ import { configureLogger } from '@0xsequence/utils'
 import { Group } from './components/Group'
 import { styled, typography } from './style'
 import { Button } from './components/Button'
-import { hooks, sequence as sequenceConnector } from './connectors/sequence'
+import { sequence as sequenceConnector } from './connectors/sequence'
 
 configureLogger({ logLevel: 'DEBUG' })
 
 const App = () => {
-  const { useChainId, useAccounts, useError, useIsActivating, useIsActive, useProvider, useENSNames } = hooks
+  const { active, library, error, chainId } = useWeb3React()
 
-  const provider = useProvider()
-  const isActive = useIsActive()
-  const chainId = useChainId()
-  const accounts = useAccounts()
-  const error = useError()
-  const isActivating = useIsActivating()
-  const ENSNames = useENSNames(provider)
+  // BUG:
+  // state values from react hook do not update
+  console.log('error...', error)
+  console.log('active...', active)
+  console.log('library...', library)
+  console.log('chainId...', chainId)
 
-  // console.log('provider', provider)
-  // console.log('isActive', isActive)
-  // console.log('chainId', chainId)
-  // console.log('accounts', accounts)
-  // console.log('error', error)
-  // console.log('isActivating', isActivating)
-  // console.log('ENSNames', ENSNames)
+  const provider = library
+  const isActive = active
 
   const connectWeb3React = async () => {
-    sequenceConnector.activate('polygon');
+    sequenceConnector.activate();
   }
 
   const disconnectWeb3React = async () => {
@@ -178,11 +172,28 @@ And that has made all the difference.`
 
   const disableActions = !isActive
 
+  function ChainId() {
+    const { chainId } = useWeb3React()
+    console.log('chainId component...', chainId)
+  
+    return (
+      <>
+        <span>Chain Id</span>
+        <span role="img" aria-label="chain">
+          ⛓
+        </span>
+        <span>{chainId ?? ''}</span>
+      </>
+    )
+  }
+
   return (
     <Container>
       <SequenceLogo alt="logo" src={logoUrl} />
       <Title>Demo Dapp + Web3-React</Title>
       <Description>Please open your browser dev inspector to view output of functions below</Description>
+
+      <ChainId />
 
       <Group label="Connection" layout="grid">
         <Button onClick={() => connectWeb3React()}>Connect Web3-React</Button>
@@ -224,7 +235,21 @@ And that has made all the difference.`
   )
 }
 
-export default React.memo(App)
+// function getLibrary(provider: any): Web3Provider {
+//   const library = new Web3Provider(provider)
+//   library.pollingInterval = 12000
+//   return library
+// }
+
+export default App
+
+// export default function() {
+//   return (
+//     <Web3ReactProvider getLibrary={getLibrary}>
+//       <App />
+//     </Web3ReactProvider>
+//   )
+// }
 
 const Container = styled('div', {
   padding: '80px 25px 80px',

@@ -1,9 +1,7 @@
-import { initializeConnector } from '@web3-react/core'
-import { Sequence } from '@0xsequence/web3-react'
+import { SequenceConnector } from '@0xsequence/web3-react-v6'
 
 const options = {
   appName: 'Web3 React Demo app'
 }
 
-export const [sequence, hooks] = initializeConnector<Sequence>((actions) => 
-  new Sequence(actions, false, options))
+export const sequence = new SequenceConnector({ chainId: 137, appName: options.appName  })
