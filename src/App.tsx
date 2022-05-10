@@ -16,7 +16,7 @@ import { sequence as sequenceConnector } from './connectors/sequence'
 configureLogger({ logLevel: 'DEBUG' })
 
 const App = () => {
-  const { active, library, error, chainId } = useWeb3React()
+  const { active, library, error, chainId, activate } = useWeb3React()
 
   // BUG:
   // state values from react hook do not update
@@ -29,7 +29,7 @@ const App = () => {
   const isActive = active
 
   const connectWeb3React = async () => {
-    sequenceConnector.activate();
+    activate(sequenceConnector);
   }
 
   const disconnectWeb3React = async () => {
