@@ -27,7 +27,7 @@
     "@web3-react/core": "6.1.9",
     "@web3-react/injected-connector": "6.0.7",
     "@0xsequence/web3-react-v6": "1.0.1",
-    "0xsequence": "^0.35.12",
+    "0xsequence": "^0.40.6",
     "ethers": "^5.5.4",
     "node-polyfill-webpack-plugin": "^1.1.4",
     "react": "^17.0.2",
