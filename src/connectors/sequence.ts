@@ -1,4 +1,4 @@
-import { SequenceConnector } from '@0xsequence/web3-react-v6'
+import { SequenceConnector } from '@0xsequence/web3-react-v6-connector'
 
 const options = {
   appName: 'Web3 React Demo app'
