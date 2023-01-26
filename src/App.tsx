@@ -16,50 +16,15 @@ import { sequence as sequenceConnector } from './connectors/sequence'
 
 configureLogger({ logLevel: 'DEBUG' })
 
-sequence.initWallet()
-
 const App = () => {
   const { active, library, error, chainId, activate } = useWeb3React()
 
   const [consoleMsg, setConsoleMsg] = useState<null | string>(null)
   const [consoleLoading, setConsoleLoading] = useState<boolean>(false)
 
-  const appendConsoleLine = (message: string) => {
-    return (setConsoleMsg((prevState => {
-      return `${prevState}\n\n${message}`
-    })))
-  }
-  
-  const resetConsole = () => {
-    setConsoleMsg(null)
-    setConsoleLoading(true)
-  }
-
-  const addNewConsoleLine = (message: string) => {
-    setConsoleMsg((() => {
-      return (message)
-    }))
-  }
-
-  const consoleWelcomeMessage = () => {
-    setConsoleLoading(false)
-    setConsoleMsg('Status: Wallet not connected. Please connect wallet to use Methods')
-  }
-
-  const consoleErrorMesssage = () => {
-    setConsoleLoading(false)
-    setConsoleMsg('An error occurred')
-  }
-
-
-  useEffect(() => { consoleWelcomeMessage() }, [])
-
-  // BUG:
-  // state values from react hook do not update
-  console.log('error...', error)
-  console.log('active...', active)
-  console.log('library...', library)
-  console.log('chainId...', chainId)
+  useEffect(() => {
+    consoleWelcomeMessage()
+  }, [])
 
   const provider = library
   const isActive = active
@@ -293,11 +258,38 @@ const App = () => {
     }
   }
 
+  const appendConsoleLine = (message: string) => {
+    return (setConsoleMsg((prevState => {
+      return `${prevState}\n\n${message}`
+    })))
+  }
+  
+  const resetConsole = () => {
+    setConsoleMsg(null)
+    setConsoleLoading(true)
+  }
+
+  const addNewConsoleLine = (message: string) => {
+    setConsoleMsg((() => {
+      return (message)
+    }))
+  }
+
+  const consoleWelcomeMessage = () => {
+    setConsoleLoading(false)
+    setConsoleMsg('Status: Wallet not connected. Please connect wallet to use Methods')
+  }
+
+  const consoleErrorMesssage = () => {
+    setConsoleLoading(false)
+    setConsoleMsg('An error occurred')
+  }
+
   const disableActions = !isActive
 
   function ChainId() {
     const { chainId } = useWeb3React()
-    console.log('chainId component...', chainId)
+    // console.log('chainId component...', chainId)
   
     return (
       <>
