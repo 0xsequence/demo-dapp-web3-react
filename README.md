@@ -1,7 +1,7 @@
 Demo Dapp + Web3-React
 =====================
 
-Dapp example on how to use Sequence Wallet with [Web3-React](https://github.com/Uniswap/web3-react). Demonstrates how to connect a wallet, sign messages and send transactions.
+Dapp example on how to use Sequence Wallet with [Web3-React](https://github.com/Uniswap/web3-react) V6. Demonstrates how to connect a wallet, sign messages and send transactions.
 
 Try this dapp at: [https://0xsequence.github.io/demo-dapp-web3-react](https://0xsequence.github.io/demo-dapp-web3-react)
 
