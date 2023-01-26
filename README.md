@@ -5,7 +5,7 @@ Dapp example on how to use Sequence Wallet with [Web3-React](https://github.com/
 
 Try this dapp at: [https://0xsequence.github.io/demo-dapp-web3-react](https://0xsequence.github.io/demo-dapp-web3-react)
 
-For complete documentation on Sequence, please see: [https://docs.sequence.build](https://docs.sequence.build)
+For complete documentation on Sequence, please see: [https://docs.sequence.xyz](https://docs.sequence.xyz)
 
 ## Usage
 

@@ -17,7 +17,7 @@ import { sequence as sequenceConnector } from './connectors/sequence'
 configureLogger({ logLevel: 'DEBUG' })
 
 const App = () => {
-  const { active, library, error, chainId, activate } = useWeb3React()
+  const { active, library, activate } = useWeb3React()
 
   const [consoleMsg, setConsoleMsg] = useState<null | string>(null)
   const [consoleLoading, setConsoleLoading] = useState<boolean>(false)
