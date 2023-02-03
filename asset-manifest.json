@@ -1,13 +1,16 @@
 {
   "files": {
-    "main.js": "/demo-dapp-web3-react/static/js/main.eaf7cd1b.js",
-    "static/js/787.9751dc94.chunk.js": "/demo-dapp-web3-react/static/js/787.9751dc94.chunk.js",
+    "main.css": "/demo-dapp-web3-react/static/css/main.7323f254.css",
+    "main.js": "/demo-dapp-web3-react/static/js/main.b002fb19.js",
+    "static/js/107.38357b89.chunk.js": "/demo-dapp-web3-react/static/js/107.38357b89.chunk.js",
     "static/media/logo.svg": "/demo-dapp-web3-react/static/media/logo.d7c9fc677fe69678a0a3dea6090ba6e9.svg",
     "index.html": "/demo-dapp-web3-react/index.html",
-    "main.eaf7cd1b.js.map": "/demo-dapp-web3-react/static/js/main.eaf7cd1b.js.map",
-    "787.9751dc94.chunk.js.map": "/demo-dapp-web3-react/static/js/787.9751dc94.chunk.js.map"
+    "main.7323f254.css.map": "/demo-dapp-web3-react/static/css/main.7323f254.css.map",
+    "main.b002fb19.js.map": "/demo-dapp-web3-react/static/js/main.b002fb19.js.map",
+    "107.38357b89.chunk.js.map": "/demo-dapp-web3-react/static/js/107.38357b89.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.eaf7cd1b.js"
+    "static/css/main.7323f254.css",
+    "static/js/main.b002fb19.js"
   ]
 }
