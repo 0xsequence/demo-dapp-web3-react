@@ -1,3 +1,4 @@
+import { Box, Image, Text } from '@0xsequence/design-system'
 import { useState, useEffect } from 'react'
 import { useWeb3React } from '@web3-react/core'
 import logoUrl from './images/logo.svg'
@@ -9,7 +10,6 @@ import { ERC_20_ABI } from './constants/abi'
 
 import { configureLogger } from '@0xsequence/utils'
 import { Group } from './components/Group'
-import { styled, typography } from './style'
 import { Button } from './components/Button'
 import { Console } from './components/Console'
 import { sequence as sequenceConnector } from './connectors/sequence'
@@ -303,18 +303,24 @@ const App = () => {
   }
 
   return (
-    <Container>
-      <SequenceLogo alt="logo" src={logoUrl} />
-      <Title>Demo Dapp + Web3-React</Title>
-      <Description>Please open your browser dev inspector to view output of functions below</Description>
+    <Box marginY="0" marginX="auto" paddingX="6" style={{ maxWidth: '720px', marginTop: '80px', marginBottom: '80px' }}>
+      <Box marginBottom="4">
+        <Image height="10" alt="logo" src={logoUrl} />
+      </Box>
+      <Box>
+        <Text color="text100" variant="large">Demo Dapp + Web3-React</Text>
+      </Box>
+      <Box marginBottom="4">
+        <Text>Please open your browser dev inspector to view output of functions below</Text>
+      </Box>
 
       <ChainId />
 
-      <Group label="Connection" layout="grid">
+      <Group label="Connection">
         <Button onClick={() => connectWeb3React()}>Connect Web3-React</Button>
         <Button onClick={() => disconnectWeb3React()}>Disconnect</Button>
       </Group>
-      <Group label="State" layout="grid">
+      <Group label="State">
         <Button disabled={disableActions} onClick={() => getChainID()}>
           ChainID
         </Button>
@@ -329,7 +335,7 @@ const App = () => {
         </Button>
       </Group>
 
-      <Group label="Signing" layout="grid">
+      <Group label="Signing">
         <Button disabled={disableActions} onClick={() => signMessage()}>
           Sign Message
         </Button>
@@ -338,7 +344,7 @@ const App = () => {
         </Button>
       </Group>
 
-      <Group label="Transactions" layout="grid">
+      <Group label="Transactions">
         <Button disabled={disableActions} onClick={() => sendETH()}>
           Send ETH
         </Button>
@@ -348,42 +354,8 @@ const App = () => {
       </Group>
 
       <Console message={consoleMsg} loading={consoleLoading} />
-    </Container>
+    </Box>
   )
 }
 
-// function getLibrary(provider: any): Web3Provider {
-//   const library = new Web3Provider(provider)
-//   library.pollingInterval = 12000
-//   return library
-// }
-
 export default App
-
-// export default function() {
-//   return (
-//     <Web3ReactProvider getLibrary={getLibrary}>
-//       <App />
-//     </Web3ReactProvider>
-//   )
-// }
-
-const Container = styled('div', {
-  padding: '80px 25px 80px',
-  margin: '0 auto',
-  maxWidth: '720px'
-})
-
-const SequenceLogo = styled('img', {
-  height: '40px'
-})
-
-const Title = styled('h1', typography.h1, {
-  color: '$textPrimary',
-  fontSize: '25px'
-})
-
-const Description = styled('p', typography.b1, {
-  color: '$textSecondary',
-  marginBottom: '15px'
-})

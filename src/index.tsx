@@ -1,9 +1,13 @@
+import { ThemeProvider } from '@0xsequence/design-system'
 import React from 'react'
 import ReactDOM from 'react-dom'
+
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { Web3ReactProvider } from '@web3-react/core'
 import { Web3Provider } from '@ethersproject/providers'
+
+import '@0xsequence/design-system/styles.css'
 
 function getLibrary(provider: any): Web3Provider {
   const library = new Web3Provider(provider)
@@ -21,7 +25,9 @@ const Web3ReactApp = () => {
 
 ReactDOM.render(
   <React.StrictMode>
-    <Web3ReactApp />
+    <ThemeProvider>
+      <Web3ReactApp />
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 )
